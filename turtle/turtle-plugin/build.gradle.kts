@@ -32,3 +32,16 @@ Add change notes here.<br>
         )
     }
 }
+
+tasks {
+
+    fun publicationOf(projectName: String) =
+        ":$projectName:publishLibraryPublicationToTestRepository"
+
+    named("runIde") {
+        dependsOn(
+            publicationOf("turtle-graphics"),
+            publicationOf("turtle-scripting")
+        )
+    }
+}
